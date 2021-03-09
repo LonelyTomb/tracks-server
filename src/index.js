@@ -19,7 +19,7 @@ app.use(authRoutes);
 app.use(trackRoutes);
 
 app.get("/", requireAuth, (req, res) => {
-  res.send(`Your email is ${req.user.email}`);
+  res.send({ user: req.user.email });
 });
 
 mongoose.connect(MONGO_URI, {
